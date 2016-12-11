@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  include DeviseHelper
+  include CustomerHelper
 
   protect_from_forgery
 

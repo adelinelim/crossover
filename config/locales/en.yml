@@ -29,6 +29,7 @@ en:
       first_name: "First Name"
       last_name: "Last Name"
   home:
-    devise:    
+    devise:
       login: "Login"
       registration: "Registration"
+      sign_in_as_admin: "You are currently signed in as Admin"

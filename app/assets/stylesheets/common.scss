@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  text-align: left;
 }
 
 .alert {
@@ -53,5 +54,9 @@ h2 {
 }
 
 a {
+  margin-left: 40px;
+}
+
+.main-alert {
   margin-left: 40px;
 }

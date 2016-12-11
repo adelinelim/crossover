@@ -1,5 +1,5 @@
-module DeviseHelper
-  def devise_error_messages!
+module CustomerHelper
+  def customer_sign_up_error_messages!
     return "" if @customer.errors.blank?
     messages = @customer.errors.full_messages.map { |msg| content_tag(:li, msg) }.join
     sentence = I18n.t("errors.messages.not_saved",

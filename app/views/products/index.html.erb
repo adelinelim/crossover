@@ -32,4 +32,6 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<% if admin_signed_in? %>
+  <%= link_to 'New Product', new_product_path %>
+<% end %>

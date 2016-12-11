@@ -2,7 +2,7 @@
 <div class="registration">
 
   <%= simple_form_for(@customer, url: customer_registration_path(@customer)) do |f| %>
-    <%= devise_error_messages! %>
+    <%= customer_sign_up_error_messages! %>
 
     <div class="field">
       <%= f.label :email %><br />
