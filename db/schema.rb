@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161211111400) do
+ActiveRecord::Schema.define(version: 20161211163459) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -64,12 +64,16 @@ ActiveRecord::Schema.define(version: 20161211111400) do
   add_index "order_lines", ["order_id"], name: "fk_rails_e6c763ee60", using: :btree
   add_index "order_lines", ["product_id"], name: "fk_rails_83e960fa54", using: :btree
 
+  create_table "order_nos", force: :cascade do |t|
+  end
+
   create_table "orders", force: :cascade do |t|
-    t.integer  "customer_id", limit: 4,                  null: false
-    t.string   "order_no",    limit: 255,                null: false
-    t.decimal  "total",                   precision: 10, null: false
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.integer  "customer_id",    limit: 4,                  null: false
+    t.string   "order_no",       limit: 255,                null: false
+    t.decimal  "total",                      precision: 10, null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.boolean  "confirm_status",                            null: false
   end
 
   add_index "orders", ["customer_id"], name: "fk_rails_3dad120da9", using: :btree

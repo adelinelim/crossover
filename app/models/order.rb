@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
   has_one :customer
 
   validates :customer_id, presence: true
-  validates :order_no, presence: true
+  validates :order_no, presence: true, uniqueness: true
   validates :total, presence: true
   validates :confirm_status, presence: true
 end
