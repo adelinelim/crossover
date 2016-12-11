@@ -4,5 +4,5 @@ class Order < ActiveRecord::Base
 
   validates :customer_id, presence: true
   validates :order_no, presence: true, uniqueness: true
-  validates :total, presence: true
+  validates :total, presence: true, numericality: true
 end

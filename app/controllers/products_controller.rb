@@ -1,6 +1,4 @@
 class ProductsController < ApplicationController
-  include AuthHelper
-
   before_action :authorize_admin!, except: [:index, :show]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 

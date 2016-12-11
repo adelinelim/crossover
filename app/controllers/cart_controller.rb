@@ -1,6 +1,4 @@
 class CartController < ApplicationController
-  include AuthHelper
-
   before_action :authorize_customer!, only: :add_to_cart
 
   def add_to_cart
@@ -24,7 +22,6 @@ class CartController < ApplicationController
   end
 
   def generate_order_and_order_line
-    binding.pry
     success_save = false
     existing_order = get_order
     if existing_order
@@ -53,7 +50,6 @@ class CartController < ApplicationController
   end
 
   def create_order_line(order)
-    binding.pry
     product = get_product
     existing_order_line = get_order_line(order.id, product.id)
     if existing_order_line
@@ -88,17 +84,5 @@ class CartController < ApplicationController
 
   def calculate_order_total(order)
     order.try(:order_lines).try(:sum, :total_price) || 0
-  end
-
-  def product_params
-    params.require(:product).permit(:name, :description, :image_url, :price, :status)
-  end
-
-  def order_params
-    params.require(:order).permit(:order_no, :customer_id, :total, :confirm_status)
-  end
-
-  def order_line_params
-    params.require(:order_line).permit(:order_id, :product_id, :quantity, :unit_price, :total_price)
   end
 end
