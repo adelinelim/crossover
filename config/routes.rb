@@ -3,8 +3,13 @@ Rails.application.routes.draw do
 
   resources :orders
   resources :products
+  #  do
+  #   member do
+  #     post :add_to_cart
+  #   end
+  # end
 
-  # post "/products/:id/add_to_cart" => "products#add_to_cart", as: "add_to_cart"
+  post "/products/:id/add_to_cart" => "products#add_to_cart", as: "add_to_cart"
 
   devise_scope :customer do
     get "/customers/new" => "customers#new", as: "new_customer_registration"

@@ -1,8 +1,9 @@
 class ProductsController < ApplicationController
   include AuthHelper
 
-  before_filter :authorize_admin!, except: [:index, :show]
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize_admin!, except: [:index, :show, :add_to_cart]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :add_to_cart]
+  before_filter :authorize_customer!, only: :add_to_cart
 
   # GET /products
   # GET /products.json
@@ -65,6 +66,13 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def add_to_cart
+    # @order = Order.new(order_params)
+    respond_to do |format|
+      format.html { redirect_to :back, notice: 'Product was successfully added to the cart.' }
     end
   end
 

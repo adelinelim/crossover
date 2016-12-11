@@ -1,6 +1,8 @@
 <div class="header">
   <div class="root">
     <%= link_to t(".home"), root_path %>
+    <%= link_to t(".products"), products_path %>
+    <%= link_to t(".cart"), orders_path %>
   </div>
   <div class="devise_header">
     <% if admin_signed_in? %>

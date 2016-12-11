@@ -20,16 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  layouts:
-    application:
-      home: "Home"
-      sign_out: "Sign Out"
   customers:
     new:
       first_name: "First Name"
       last_name: "Last Name"
   home:
-    devise:
+    header:
+      sign_out: "Sign Out"
+      home: "Home"
+      cart: "Cart"
+      products: "Products"
       login: "Login"
       registration: "Registration"
       sign_in_as_admin: "You are currently signed in as Admin"
