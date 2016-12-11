@@ -8,15 +8,19 @@
 </head>
 <body>
   <% if customer_signed_in? %>
-    <%= link_to "Sign Out", destroy_customer_session_path, method: :delete %>
+    <%= link_to t(".sign_out"), destroy_customer_session_path, method: :delete %>
   <% else %>
-    <%= link_to "Login", new_customer_session_path %>
-    <%= link_to "Registration", new_customer_registration_path %>
+    <%= link_to t(".login"), new_customer_session_path %>
+    <%= link_to t(".registration"), new_customer_registration_path %>
   <% end %>
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-<%= yield %>
 
+  <%= yield %>
+
+  <div class="footer">
+    <%= link_to t(".home"), root_path %>
+  </div>
 </body>
 </html>

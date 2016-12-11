@@ -20,6 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  layouts:
+    application:
+      home: "Home"
+      sign_out: "Sign Out"
+      login: "Login"
+      registration: "Registration"
   customers:
     new:
       first_name: "First Name"
