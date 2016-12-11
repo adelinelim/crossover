@@ -7,12 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if customer_signed_in? %>
-    <%= link_to t(".sign_out"), destroy_customer_session_path, method: :delete %>
-  <% else %>
-    <%= link_to t(".login"), new_customer_session_path %>
-    <%= link_to t(".registration"), new_customer_registration_path %>
-  <% end %>
+  <%= render "home/devise" %>
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>

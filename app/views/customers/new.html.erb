@@ -1,5 +1,5 @@
+<h2>Registration</h2>
 <div class="registration">
-  <h2>Registration</h2>
 
   <%= simple_form_for(@customer, url: customer_registration_path(@customer)) do |f| %>
     <%= devise_error_messages! %>
@@ -27,13 +27,8 @@
       <%= f.password_field :password, autocomplete: "off", required: true %>
     </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
-
     <div class="actions">
-      <%= f.submit "Sign up", class: "button" %>
+      <%= f.submit "Sign up" %>
     </div>
   <% end %>
 </div>

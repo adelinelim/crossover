@@ -1,0 +1,13 @@
+<div class="header">
+  <div class="root">
+    <%= link_to t(".home"), root_path %>
+  </div>
+  <div class="devise_header">
+    <% if customer_signed_in? %>
+      <%= link_to t(".sign_out"), destroy_customer_session_path, method: :delete %>
+    <% else %>
+      <%= link_to t(".login"), new_customer_session_path, class: "login_link" %>
+      <%= link_to t(".registration"), new_customer_registration_path, class: "registration_link" %>
+    <% end %>
+  </div>
+</div>

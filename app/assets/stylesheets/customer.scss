@@ -1,9 +1,17 @@
-.registration {
+.new_customer {
+  margin-left: 40px;
+
   input {
     width: 250px;
   }
 
-  .button {
+  .actions {
+    input {
+      width: auto;
+    }
+  }
+
+  #customer_remember_me {
     width: auto;
   }
 }

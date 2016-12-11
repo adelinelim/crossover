@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 .alert {
   color: red;
 }
@@ -12,4 +16,42 @@ h1 {
 
 h2 {
   color: #08c;
+  margin-left: 40px;
+}
+
+.footer {
+  border-top: 1px solid #f0efe7;
+  margin-top: 20px;
+  padding-top: 20px;
+
+  a:hover {
+    color: #08c;
+    background: none;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-right: 40px;
+  height: 40px;
+  background-color: #f0efe7;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #08c;
+    background: none;
+  }
+}
+
+.registration_link {
+  margin-left: 20px;
+}
+
+a {
+  margin-left: 40px;
 }
