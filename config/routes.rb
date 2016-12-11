@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :admins
   root "home#index"
 
   resources :orders
@@ -11,4 +10,5 @@ Rails.application.routes.draw do
   end
 
   devise_for :customers
+  devise_for :admins
 end
