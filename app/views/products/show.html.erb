@@ -5,12 +5,12 @@
   </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong>Description:</strong><br>
     <%= @product.description %>
   </p>
 
   <p>
-    <strong>Image url:</strong>
+    <strong>Image url:</strong><br>
     <%= image_tag @product.image_url %>
   </p>
 
@@ -28,6 +28,8 @@
 </div>
 
 <div class="actions">
+  <a class="button" href="/products/<%= @product.id %>/add_to_cart">Add to Cart</a>
+  <%#= link_to 'Add to Cart', add_to_cart_path(id: @product.id), class: "button" %>
   <% if admin_signed_in? %>
     <%= link_to 'Edit', edit_product_path(@product), class: "button" %>
   <% end %>

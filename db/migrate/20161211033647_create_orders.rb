@@ -4,6 +4,7 @@ class CreateOrders < ActiveRecord::Migration
       t.references :customer, foreign_key: true, null: false
       t.string :order_no, null: false
       t.decimal :total, null: false
+      t.boolean :confirm_status
 
       t.timestamps null: false
     end
