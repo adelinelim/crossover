@@ -1,33 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="order">
+  <h1>Listing Orders</h1>
 
-<h1>Listing Orders</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Order no</th>
-      <th>Customer</th>
-      <th>Total</th>
-      <th>Confirm Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orders.each do |order| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= order.order_no %></td>
-        <td><%= order.customer_id %></td>
-        <td><%= order.total %></td>
-        <td><%= order.confirm_status %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Order no</th>
+        <th>Customer</th>
+        <th>Total</th>
+        <th>Confirm Status</th>
+        <th>Updated At</th>
+        <% if customer_signed_in? %>
+          <th colspan="3"></th>
+        <% end %>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Order', new_order_path %>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.order_no %></td>
+          <td><%= order.customer_id %></td>
+          <td><%= order.total %></td>
+          <td><%= order.confirm_status %></td>
+          <td><%= order.updated_at %></td>
+          <% if customer_signed_in? %>
+            <td><%= link_to 'Show', order %></td>
+            <td><%= link_to 'Edit', edit_order_path(order) %></td>
+            <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

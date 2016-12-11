@@ -1,24 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="order">
+  <p>
+    <strong>Order no:</strong>
+    <%= @order.order_no %>
+  </p>
 
-<p>
-  <strong>Order no:</strong>
-  <%= @order.order_no %>
-</p>
+  <p>
+    <strong>Customer:</strong>
+    <%= @order.customer_id %>
+  </p>
 
-<p>
-  <strong>Customer:</strong>
-  <%= @order.customer_id %>
-</p>
+  <p>
+    <strong>Total:</strong>
+    <%= @order.total %>
+  </p>
 
-<p>
-  <strong>Total:</strong>
-  <%= @order.total %>
-</p>
+  <p>
+    <strong>Confirm Status:</strong>
+    <%= @order.confirm_status %>
+  </p>
+</div>
 
-<p>
-  <strong>Confirm Status:</strong>
-  <%= @order.confirm_status %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<div class="actions">
+  <%= link_to 'Edit', edit_order_path(@order), class: "button" %>
+  <%= link_to 'Back', orders_path, class: "button" %>
+</div>
