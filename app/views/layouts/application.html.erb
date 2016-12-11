@@ -2,11 +2,18 @@
 <html>
 <head>
   <title>Ecommerce</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if customer_signed_in? %>
+    <%= link_to "Sign Out", destroy_customer_session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Login", new_customer_session_path %>
+    <%= link_to "Registration", new_customer_registration_path %>
+  <% end %>
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 <%= yield %>
