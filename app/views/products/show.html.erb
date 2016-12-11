@@ -1,31 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="product">
+  <p>
+    <strong>Name:</strong>
+    <%= @product.name %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @product.description %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+  <p>
+    <strong>Image url:</strong>
+    <%= image_tag @product.image_url %>
+  </p>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
+  <p>
+    <strong>Price:</strong>
+    <%= number_to_currency(@product.price) %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+  <% if admin_signed_in? %>
+    <p>
+      <strong>Status:</strong>
+      <%= @product.status %>
+    </p>
+  <% end %>
+</div>
 
-<p>
-  <strong>Status:</strong>
-  <%= @product.status %>
-</p>
-
-<% if admin_signed_in? %>
-  <%= link_to 'Edit', edit_product_path(@product) %> |
-<% end %>
-<%= link_to 'Back', products_path %>
+<div class="actions">
+  <% if admin_signed_in? %>
+    <%= link_to 'Edit', edit_product_path(@product), class: "button" %>
+  <% end %>
+  <%= link_to 'Back', products_path, class: "button back-button" %>
+</div>

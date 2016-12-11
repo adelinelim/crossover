@@ -1,4 +1,4 @@
-<%= form_for(@product) do |f| %>
+<%= simple_form_for(@product) do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.input_field :description, as: :text %>
   </div>
   <div class="field">
     <%= f.label :image_url %><br>
@@ -25,12 +25,16 @@
   </div>
   <div class="field">
     <%= f.label :price %><br>
-    <%= f.text_field :price %>
+    <%= f.number_field :price, step: :any %>
   </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.check_box :status %>
-  </div>
+
+  <% if admin_signed_in? %>
+    <div class="field">
+      <%= f.label :status %><br>
+      <%= f.check_box :status %> Enable
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

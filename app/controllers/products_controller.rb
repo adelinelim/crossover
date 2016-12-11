@@ -1,13 +1,18 @@
 class ProductsController < ApplicationController
   include AuthHelper
-  
+
   before_filter :authorize_admin!, except: [:index, :show]
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :add_to_cart]
+  before_filter :authorize_customer!, only: [:add_to_cart]
 
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    if admin_signed_in?
+      @products = Product.all
+    else
+      @products = Product.where(status: true)
+    end
   end
 
   # GET /products/1
@@ -62,6 +67,10 @@ class ProductsController < ApplicationController
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def add_to_cart
+
   end
 
   private

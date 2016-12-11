@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :orders
-  resources :products
+  resources :products do
+    post :add_to_cart
+  end
 
   devise_scope :customer do
     get "/customers/new" => "customers#new", as: "new_customer_registration"
