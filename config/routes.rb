@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :products
 
   devise_scope :customer do
-    get "/customers/sign_up" => "customers#sign_up", as: "new_customer_registration"
+    get "/customers/new" => "customers#new", as: "new_customer_registration"
+    post "/customers(.:format)" => "customers#create" , as: "customer_registration"
   end
 
   devise_for :customers
