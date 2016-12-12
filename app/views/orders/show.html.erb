@@ -5,13 +5,8 @@
   </p>
 
   <p>
-    <strong>Customer:</strong>
-    <%= @order.customer_id %>
-  </p>
-
-  <p>
     <strong>Total:</strong>
-    <%= @order.total %>
+    <%= number_to_currency @order.total %>
   </p>
 
   <p>
@@ -21,6 +16,8 @@
 </div>
 
 <div class="actions">
-  <%= link_to 'Edit', edit_order_path(@order), class: "button" %>
+  <% unless @order.confirm_status %>
+    <%= link_to 'Edit', edit_order_path(@order), class: "button" %>
+  <% end %>
   <%= link_to 'Back', orders_path, class: "button" %>
 </div>
