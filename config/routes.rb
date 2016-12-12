@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :products
 
   post "/products/:id/add_to_cart" => "cart#add_to_cart", as: "add_to_cart"
+  post "/orders/:id/confirm_order" => "orders#confirm_order", as: "confirm_order"
 
   devise_scope :customer do
     get "/customers/new" => "customers#new", as: "new_customer_registration"

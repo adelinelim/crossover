@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
 
   before_action :authorize_customer!
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :confirm_order]
 
   def index
-    @orders = Order.all
+    @orders = Order.where(customer_id: current_customer.id)
   end
 
   def show
@@ -52,6 +52,14 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def confirm_order
+    if @order.update(confirm_status: true)
+      redirect_to orders_path, notice: "Order no #{@order.order_no} is confirmed."
+    else
+      redirect_to orders_path, alert: "Error - cannot confirm the order no #{@order.order_no}"
     end
   end
 
