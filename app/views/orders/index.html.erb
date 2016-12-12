@@ -22,8 +22,8 @@
           <% unless order.confirm_status %>
             <td>
               <div class="actions">
-                <%= form_for "confirm_order", url: confirm_order_path(id: order.id), method: :post, html: { class: "confirm-order" } do %>
-                  <%= submit_tag "Confirm Order", class: "button" %>
+                <%= form_for "make payment", url: make_payment_path(id: order.id), method: :post, html: { class: "make-payment" } do %>
+                  <%= submit_tag "Make Payment", class: "button" %>
                 <% end %>
               </div>
             </td>

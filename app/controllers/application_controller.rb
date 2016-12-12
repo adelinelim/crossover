@@ -10,4 +10,11 @@ class ApplicationController < ActionController::Base
            layout: false,
            formats: [:html]
   end
+
+  def render_payment_connection_error
+    render file: "#{Rails.root}/public/connection_failed",
+           status: 404,
+           layout: false,
+           formats: [:html]
+  end
 end

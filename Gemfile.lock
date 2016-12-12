@@ -72,6 +72,10 @@ GEM
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
+    faraday (0.9.2)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.10.0)
+      faraday (>= 0.7.4, < 0.10)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -101,6 +105,7 @@ GEM
       i18n (>= 0.6.4, <= 0.7.0)
       sixarm_ruby_unaccent (>= 1.1.1, < 2)
     multi_json (1.12.1)
+    multipart-post (2.0.0)
     mysql2 (0.3.20)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -198,6 +203,7 @@ DEPENDENCIES
   country_select
   devise
   factory_girl_rails
+  faraday_middleware
   jbuilder (~> 2.0)
   jquery-rails
   minitest-rails

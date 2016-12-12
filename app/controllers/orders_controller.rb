@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   before_action :authorize_customer!
-  before_action :set_order, only: [:show, :edit, :update, :destroy, :confirm_order]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :make_payment]
 
   def index
     @orders = Order.where(customer_id: current_customer.id)
@@ -59,11 +59,21 @@ class OrdersController < ApplicationController
     end
   end
 
-  def confirm_order
-    if @order.update(confirm_status: true)
-      redirect_to orders_path, notice: "Order no #{@order.order_no} is confirmed."
+  def make_payment
+    # http://localhost:5000/payment/create
+    # binding.pry
+    response = Services::PaymentGateway.process_payment
+    binding.pry
+    if response == "ok"
+      # if @order.update(confirm_status: true)
+      #   redirect_to orders_path, notice: "Order no #{@order.order_no} is confirmed."
+      # else
+        redirect_to orders_path, alert: "Error - cannot confirm the order no #{@order.order_no}"
+      # end
+    elsif response == "connection_failed"
+      render_payment_connection_error
     else
-      redirect_to orders_path, alert: "Error - cannot confirm the order no #{@order.order_no}"
+      redirect_to orders_path, alert: "Error - with payment"
     end
   end
 

@@ -10,6 +10,7 @@ gem "coffee-rails", "~> 4.1.0"
 gem "devise"
 gem "country_select"
 gem "simple_form"
+gem "faraday_middleware"
 
 gem "jquery-rails"
 gem "turbolinks"
