@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_id: 1
+  amount: 9.99
+  payment_state: MyString
+  paypal_token: MyString
+  paypal_payer_id: MyString
+  paypal_identifier: MyString
+  address_id: 1
+
+two:
+  order_id: 1
+  amount: 9.99
+  payment_state: MyString
+  paypal_token: MyString
+  paypal_payer_id: MyString
+  paypal_identifier: MyString
+  address_id: 1

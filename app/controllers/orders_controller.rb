@@ -15,6 +15,9 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    if @order.confirm_status
+      render orders_path, alert: "Cannot edit an order that has already confirmed"
+    end
   end
 
   def create
