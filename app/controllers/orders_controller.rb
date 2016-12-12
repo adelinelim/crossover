@@ -60,8 +60,6 @@ class OrdersController < ApplicationController
   end
 
   def make_payment
-    # http://localhost:5000/payment/create
-    # binding.pry
     response = Services::PaymentGateway.process_payment
     binding.pry
     if response == "ok"
