@@ -16,7 +16,7 @@
       <% @orders.each do |order| %>
         <tr>
           <td><%= link_to order.order_no, order %></td>
-          <td><%= order.total %></td>
+          <td><%= number_to_currency order.total %></td>
           <td><%= order_confirmation_status(order) %></td>
           <td><%= order.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
           <% unless order.confirm_status %>

@@ -1,22 +1,24 @@
 <div class="order">
-  <p>
+  <h1>Order Details</h1>
+  <div class="order-detail">
     <strong>Order no:</strong>
     <%= @order.order_no %>
-  </p>
+  </div>
 
-  <p>
+  <br>
+  <div class="order-detail">
     <strong>Total:</strong>
     <%= number_to_currency @order.total %>
-  </p>
+  </div>
 
-  <p>
+  <br>
+  <div class="order-detail">
     <strong>Confirm Status:</strong>
     <%= order_confirmation_status(@order) %>
-  </p>
+  </div>
 
-  <% @order_lines.each do |line| %>
-    <%= line.product.name %>
-  <% end %>
+  <br>
+  <%= render partial: "order_lines", locals: { order_lines: @order_lines } %>
 </div>
 
 <div class="actions">

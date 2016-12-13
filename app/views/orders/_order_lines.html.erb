@@ -1,0 +1,24 @@
+<div class="order-lines">
+  <strong>Order Lines:</strong>
+  <table>
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% order_lines.each do |ol| %>
+        <tr>
+          <td><%= ol.product.name %></td>
+          <td><%= ol.quantity %></td>
+          <td><%= number_to_currency ol.unit_price %></td>
+          <td><%= number_to_currency ol.total_price %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

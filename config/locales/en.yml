@@ -34,3 +34,5 @@ en:
       login: "Login"
       registration: "Registration"
       sign_in_as_admin: "Admin signed in as %{email}"
+  products_controller:
+    has_order_error: "Product can't be delete, because there is already an order placed to it."

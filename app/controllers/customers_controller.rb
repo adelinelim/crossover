@@ -8,17 +8,22 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
 
-    if @customer.save
-      redirect_to root_path, notice: "Customer was successfully created."
-    else
-      render :new
+    respond_to do |format|
+      if @customer.save
+        format.html { redirect_to root_path, notice: "Customer was successfully created." }
+        format.json { render :show, status: :created, location: @customer }
+      else
+        format.html { render :new }
+        format.json { render json: @customer.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   private
-    def customer_params
-      params.require(:customer).permit(
-        :firstname, :lastname, :email, :password, :encrypted_password
-      )
-    end
+  
+  def customer_params
+    params.require(:customer).permit(
+      :firstname, :lastname, :email, :password, :encrypted_password
+    )
+  end
 end
