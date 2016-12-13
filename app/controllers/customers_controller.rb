@@ -1,8 +1,6 @@
 class CustomersController < ApplicationController
   include CustomerHelper
 
-  protect_from_forgery
-
   def new
     @customer = Customer.new
   end

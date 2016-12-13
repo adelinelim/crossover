@@ -19,7 +19,7 @@ class Services::PaymentGateway
   end
 
   def self.create_post_data
-    {"campaign_products" => "id", "notes" => "123"}
+    {"product" => "id", "notes" => "123"}
   end
 
   def self.connection

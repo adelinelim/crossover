@@ -17,4 +17,11 @@ class ApplicationController < ActionController::Base
            layout: false,
            formats: [:html]
   end
+
+  def render_404
+    render file: "#{Rails.root}/public/404",
+           status: 404,
+           layout: false,
+           formats: [:html]
+  end
 end

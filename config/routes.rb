@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "home#index"
 
-  resources :orders
+  resources :orders, except: :new
   resources :products
   resources :payments
   resources :addresses

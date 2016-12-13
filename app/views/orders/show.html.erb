@@ -11,8 +11,12 @@
 
   <p>
     <strong>Confirm Status:</strong>
-    <%= @order.confirm_status %>
+    <%= order_confirmation_status(@order) %>
   </p>
+
+  <% @order_lines.each do |line| %>
+    <%= line.product.name %>
+  <% end %>
 </div>
 
 <div class="actions">

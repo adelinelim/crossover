@@ -17,7 +17,7 @@
         <tr>
           <td><%= link_to order.order_no, order %></td>
           <td><%= order.total %></td>
-          <td><%= order.confirm_status ? "Confirmed" : "Pending" %></td>
+          <td><%= order_confirmation_status(order) %></td>
           <td><%= order.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
           <% unless order.confirm_status %>
             <td>
@@ -27,8 +27,8 @@
                 <% end %>
               </div>
             </td>
-            <td><%= link_to 'Edit', edit_order_path(order) %></td>
-            <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to "Edit", edit_order_path(order) %></td>
+            <td><%= link_to "Destroy", order, method: :delete, data: { confirm: "Are you sure?" } %></td>
           <% else %>
             <td></td>
           <% end %>

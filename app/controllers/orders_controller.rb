@@ -11,14 +11,12 @@ class OrdersController < ApplicationController
     @order_lines = @order.order_lines
   end
 
-  def new
-    @order = Order.new
-  end
-
   def edit
     if @order.confirm_status
       redirect_to orders_path, alert: "Cannot edit an order that has already confirmed"
     end
+
+    @order_lines = @order.order_lines
   end
 
   def create
@@ -61,7 +59,6 @@ class OrdersController < ApplicationController
 
   def make_payment
     response = Services::PaymentGateway.process_payment
-    binding.pry
     if response == "ok"
       # if @order.update(confirm_status: true)
       #   redirect_to orders_path, notice: "Order no #{@order.order_no} is confirmed."
