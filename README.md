@@ -9,5 +9,5 @@ Build a small and very simple e-commerce application
 
 2. When the server is started, go to browser
 ```
-http://localhost:3000
+http://localhost:4000
 ```
