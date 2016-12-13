@@ -54,10 +54,14 @@ class OrdersController < ApplicationController
   # DELETE /orders/1
   # DELETE /orders/1.json
   def destroy
-    @order.destroy
-    respond_to do |format|
-      format.html { redirect_to orders_url, notice: "Order was successfully destroyed." }
-      format.json { head :no_content }
+    if @order.confirm_status
+      redirect_to orders_path, alert: "Confirmed order cannot be delete"
+    else
+      @order.destroy
+      respond_to do |format|
+        format.html { redirect_to orders_url, notice: "Order was successfully destroyed." }
+        format.json { head :no_content }
+      end
     end
   end
 

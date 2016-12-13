@@ -26,14 +26,14 @@ class CartController < ApplicationController
     existing_order = get_order
     if existing_order
       order_line = create_order_line(existing_order)
-      existing_order.total = calculate_order_total(existing_order)
+      existing_order.total = Services::CalculateOrder.calculate_order_total(existing_order)
       success_save = order_line.valid?
       existing_order.save
     else
       saved_order = create_new_order
       order_line = create_order_line(saved_order)
       success_save = order_line.valid?
-      saved_order.total = calculate_order_total(saved_order)
+      saved_order.total = Services::CalculateOrder.calculate_order_total(saved_order)
       saved_order.save
     end
     success_save
@@ -80,9 +80,5 @@ class CartController < ApplicationController
 
   def get_order
     Order.where(customer_id: current_customer.id, confirm_status: false).first
-  end
-
-  def calculate_order_total(order)
-    order.try(:order_lines).try(:sum, :total_price) || 0
   end
 end
