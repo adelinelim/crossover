@@ -45,7 +45,6 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-    binding.pry
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: "Product was successfully updated." }
@@ -60,7 +59,7 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
-    if check_if_has_order
+    if has_order_to_the_product?
       respond_to do |format|
         format.html { redirect_to products_url, alert: I18n.t(".products_controller.has_order_error") }
         format.json { render json: @product.errors.add(:order, I18n.t(".products_controller.has_order_error")), status: :unprocessable_entity }
@@ -76,7 +75,7 @@ class ProductsController < ApplicationController
 
   private
 
-  def check_if_has_order
+  def has_order_to_the_product?
     OrderLine.find_by(product_id: @product.id)
   end
 
