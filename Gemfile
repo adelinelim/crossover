@@ -20,6 +20,8 @@ group :development, :test do
   gem "pry-rails"
   gem "pry-byebug"
   gem "rspec-rails"
+  gem "minitest-around"
+  gem "minitest-spec-rails"
 end
 
 group :development do

@@ -4,10 +4,10 @@ one:
   order_no: MyString
   customer_id: 1
   total: 9.99
-  date: 2016-12-11 11:36:47
+  confirm_status: true
 
 two:
   order_no: MyString
   customer_id: 1
   total: 9.99
-  date: 2016-12-11 11:36:47
+  confirm_status: false
