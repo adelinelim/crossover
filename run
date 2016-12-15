@@ -1,3 +1,0 @@
-#!/bin/bash
-
-bundle exec bundle install && bundle exec rake db:create && bundle exec rake db:migrate && bundle exec rake db:test:load && bundle exec rails s -p4000

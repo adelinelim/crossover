@@ -1,7 +1,7 @@
 <h2>Registration</h2>
 <div class="registration">
 
-  <%= simple_form_for(@customer, url: customer_registration_path(@customer)) do |f| %>
+  <%= simple_form_for(@customer, url: customers_path(@customer)) do |f| %>
     <%= customer_sign_up_error_messages! %>
 
     <div class="field">
@@ -20,10 +20,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
+      <%= f.label :password %><br />
       <%= f.password_field :password, autocomplete: "off", required: true %>
     </div>
 

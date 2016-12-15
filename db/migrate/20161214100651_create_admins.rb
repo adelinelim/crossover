@@ -1,8 +1,6 @@
-class CreateCustomers < ActiveRecord::Migration
+class CreateAdmins < ActiveRecord::Migration
   def change
-    create_table :customers do |t|
-      t.string :firstname, null: false
-      t.string :lastname, null: false
+    create_table :admins do |t|
       t.string :email, null: false
       t.string :password, null: false
       t.string :session_secret_key

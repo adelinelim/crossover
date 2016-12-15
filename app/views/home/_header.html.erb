@@ -6,18 +6,13 @@
       <%= link_to t(".cart"), orders_path %>
     <% end %>
   </div>
-  <div class="devise_header">
-    <% if admin_signed_in? %>
-      <%= t(".sign_in_as_admin", email: current_admin.email) %>
-      <%= link_to t(".sign_out"), destroy_admin_session_path, method: :delete %>
+  <div class="login_logout_header">
+    <% if customer_signed_in? %>
+      <%= t(".sign_in_as_customer", email: current_customer.email) %>
+      <%= link_to t(".sign_out"), logout_customer_path %>
     <% else %>
-      <% if customer_signed_in? %>
-        <%= t(".sign_in_as_customer", email: current_customer.email) %>
-        <%= link_to t(".sign_out"), destroy_customer_session_path, method: :delete %>
-      <% else %>
-        <%= link_to t(".login"), new_customer_session_path, class: "login_link" %>
-        <%= link_to t(".registration"), new_customer_registration_path, class: "registration_link" %>
-      <% end %>
+      <%= link_to t(".login"), sign_in_customer_path, class: "login_link" %>
+      <%= link_to t(".registration"), new_customer_path, class: "registration_link" %>
     <% end %>
   </div>
 </div>

@@ -1,0 +1,20 @@
+<h2>Login</h2>
+<div class="sign_in">
+  <%= form_for @customer do |f| %>
+    <div class="field">
+      <%= label_tag :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= label_tag :password %><br />
+      <%= f.password_field :password, autocomplete: "off"  %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form_for "login", url: login_customer_path, method: :post, html: { class: "login" } do %>
+      <%= submit_tag "Log in", class: "button" %>
+    <% end %>
+  </div>
+</div>

@@ -6,8 +6,8 @@
 #
 one:
   email: MyString
-  encrypted_password: MyString
+  password: MyString
 
 two:
   email: MyString2
-  encrypted_password: MyString
+  password: MyString
