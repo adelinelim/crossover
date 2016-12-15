@@ -10,11 +10,11 @@
       <%= label_tag :password %><br />
       <%= f.password_field :password, autocomplete: "off"  %>
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= form_for "login", url: login_customer_path, method: :post, html: { class: "login" } do %>
-      <%= submit_tag "Log in", class: "button" %>
-    <% end %>
-  </div>
+    <div class="actions">
+      <%= form_for "login", url: login_customer_path, method: :post, html: { class: "login" } do %>
+        <%= submit_tag "Log in", class: "button" %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

@@ -17,13 +17,14 @@ class CustomersController < ApplicationController
   # end
 
   def sign_in
+    binding.pry
     @customer = Customer.new
   end
 
   def login
     binding.pry
-    found_customer = Customer.where(email: params[:email])
-    if found_customer.password == params[:password]
+    found_customer = Customer.where(email: customer_params[:email])
+    if found_customer.password == customer_params[:password]
       uuid = SecureRandom.uuid
       found_customer.session_secret_key = uuid
       session[:session_secret_key] = uuid
@@ -38,7 +39,7 @@ class CustomersController < ApplicationController
     session[:session_secret_key] = nil
     current_user.session_secret_key = nil
     current_user.save
-    redirect_to root_path
+    redirect_to root_path, notice: "successfully signed out"
   end
 
   # def session_id
@@ -51,8 +52,9 @@ class CustomersController < ApplicationController
   end
 
   def create
+    binding.pry
     @customer = Customer.new(customer_params)
-    @customer.password = params[:password]
+    @customer.password = customer_params[:password]
 
     respond_to do |format|
       if @customer.save
@@ -68,6 +70,6 @@ class CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:firstname, :lastname, :email, :password)
+    params.require(:customer).permit(:firstname, :lastname, :email, :password, :session_secret_key)
   end
 end

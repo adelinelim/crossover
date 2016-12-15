@@ -1,10 +1,10 @@
 require "bcrypt"
 
 class Customer < ActiveRecord::Base
-  validates :firstname, presence: true
-  validates :lastname, presence: true
-  validates :email, presence: true, uniqueness: true
-  validates :password, presence: true, length: { minimum: 7 }
+  # validates :firstname, presence: true
+  # validates :lastname, presence: true
+  # validates :email, presence: true, uniqueness: true
+  # validates :password, presence: true, length: { minimum: 7 }
 
   # def password
   #   binding.pry
